@@ -94,6 +94,7 @@ body {
     color: var(--accent-blue) !important;
     background-color: rgba(59, 130, 246, 0.1);
     cursor: pointer;
+    animation: float 2s ease-in-out infinite;
 }
 
 .navbar-toggler {
@@ -233,6 +234,7 @@ section {
     transform: translateY(-10px);
     box-shadow: 0 15px 30px rgba(59, 130, 246, 0.2) !important;
     border-color: var(--secondary-blue);
+    animation: float 2s ease-in-out infinite;
 }
 
 .portfolio-card .card-img-top {
@@ -288,13 +290,28 @@ section {
     width: 44px;
     height: 44px;
     border-radius: 8px;
-    background-color: rgba(13, 109, 253, 0.001);
+    background-color: rgba(13, 109, 253, 0.091);
     /* o el color de tu tema */
     color: #59bafa;
     text-decoration: none;
     border: none;
     cursor: pointer;
     transition: transform 0.08s ease-in-out, background 0.2s;
+    animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .btn-social:hover {
@@ -691,6 +708,7 @@ section {
     border-color: var(--primary-blue);
     transform: translateY(-2px);
     color: var(--text-white);
+    animation: float 2s ease-in-out infinite;
 }
 
 .btn-outline-primary {

@@ -94,7 +94,7 @@ function setupContactForm() {
     }
 
     // Inicializar EmailJS con tu Public Key
-    emailjs.init("ZcBRlx1itV0gAyHk9");
+    emailjs.init("dwf1Mds3uEJ4hiPJi");
 
     // Elemento para mostrar mensajes
     const formMessage = document.createElement('div');
@@ -187,8 +187,8 @@ function setupContactForm() {
 
             // Enviar con EmailJS
             const response = await emailjs.send(
-                'service_zfkai8f',   // Service ID
-                'template_k8vjrk6',  // Template ID
+                'service_vtr9gw7',   // Service ID
+                'template_msf8xvp',  // Template ID
                 templateParams
             );
 
