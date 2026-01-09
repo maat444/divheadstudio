@@ -29,7 +29,7 @@ button,
 input[type="submit"],
 .carousel-control,
 .clickable {
-    cursor: url('../assets/images/custom-cursor.png'), pointer;
+    cursor: pointer;
 }
 
 /* Estilos generales */
