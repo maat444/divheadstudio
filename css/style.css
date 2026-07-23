@@ -105,6 +105,60 @@ body {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
+/* Base común de renderizado */
+.anim-base {
+  display: inline-block;
+  opacity: 0;
+  filter: blur(10px); /* Comienzan borrosas */
+}
+
+/* 1. "DivHead" - Entra y sale por abajo */
+.word-aba-ari {
+  transform: translateY(100%);
+  animation: ejeVertical 5s infinite ease-in-out;
+  animation-delay: 0s;
+}
+
+/* 2. "Studio" - Entra y sale por la derecha (un poco retrasada) */
+.word-der-izq {
+  transform: translateX(100%);
+  animation: ejeDerecha 5s infinite ease-in-out;
+  animation-delay: 0.15s; /* Entra después, sale después */
+}
+
+/* 3. "." - Entra y sale por la izquierda (último en irse) */
+.word-izq-der {
+  transform: translateX(-100%);
+  animation: ejeIzquierda 5s infinite ease-in-out;
+  animation-delay: 0.3s; /* Cierre de entrada y salida */
+}
+
+/* --- KEYFRAMES CON EFECTO DE DESENFOQUE Y RETORNO --- */
+
+/* Lógica "DivHead": Abajo -> Centro -> Abajo */
+@keyframes ejeVertical {
+  0% { transform: translateY(100%); opacity: 0; filter: blur(8px); }
+  8% { transform: translateY(0); opacity: 1; filter: blur(0); }
+  75% { transform: translateY(0); opacity: 1; filter: blur(0); } /* Sostiene */
+  85%, 100% { transform: translateY(100%); opacity: 0; filter: blur(12px); } /* Cae y se borra */
+}
+
+/* Lógica "Studio": Derecha -> Centro -> Derecha */
+@keyframes ejeDerecha {
+  0% { transform: translateX(100%); opacity: 0; filter: blur(8px); }
+  8% { transform: translateX(0); opacity: 1; filter: blur(0); }
+  75% { transform: translateX(0); opacity: 1; filter: blur(0); } /* Sostiene */
+  85%, 100% { transform: translateX(100%); opacity: 0; filter: blur(12px); } /* Regresa a la derecha */
+}
+
+/* Lógica ".": Izquierda -> Centro -> Izquierda */
+@keyframes ejeIzquierda {
+  0% { transform: translateX(-100%); opacity: 0; filter: blur(8px); }
+  8% { transform: translateX(0); opacity: 1; filter: blur(0); }
+  75% { transform: translateX(0); opacity: 1; filter: blur(0); } /* Sostiene */
+  85%, 100% { transform: translateX(-100%); opacity: 0; filter: blur(12px); } /* Regresa a la izquierda */
+}
+
 /* Secciones */
 section {
     padding-top: 80px;
